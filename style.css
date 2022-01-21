@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: black;
+    --secondary-color: white;
+    --bezier-transition: cubic-bezier(0.175, 0.885, 0.32, 1.275)
+}
+
+html {
+    transition: all 0.5s var(--bezier-transition);
+}
+
+html.dark {
+    --primary-color: white;
+    --secondary-color: #333;
+}
+
+html.dark {
+    background-color: #111;
+    color: var(--primary-color)
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.toggle {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 0;
+    /* border-radius: 4px; */
+    padding: 8px 12px;
+    position: absolute;
+    top: 100px;
+    font-family: inherit;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.toggle:focus {
+    outline: none;
+}
+
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clock {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    /* background-color: gray; */
+}
+
+.needle {
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 65px;
+    width: 3px;
+    transform-origin: bottom center;
+    /* transition: all 0.5s var(--bezier-transition); */
+}
+
+.needle.hour {
+    transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.needle.minute {
+    transform: translate(-50%, -100%) rotate(0deg);
+    height: 100px;
+}
+
+.needle.second {
+    transform: translate(-50%, -100%) rotate(0deg);
+    height: 100px;
+    background-color: lightcoral;
+}
+
+.center-point {
+    background-color: lightcoral;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.center-point::after {
+    content: '';
+    background-color: var(--primary-color);
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.border-clock {
+    background-color: transparent;
+    border: 5px solid var(--primary-color);
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.border-clock::after {
+    content: '';
+    /* background-color: var(--primary-color); */
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.time {
+    font-size: 60px;
+}
+
+.date {
+    color: grey;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.date .circle {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 50%;
+    height: 18px;
+    width: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 18px;
+    transition: all 0.5s var(--bezier-transition);
+    font-size: 12px;
+}
+
+.caixa-autoria {
+    position: fixed;
+    display: flex;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    /* border-top-left-radius: 0.6rem; */
+    bottom: 0;
+    right: 0;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 40px;
+    width: 120px;
+    padding: 1rem;
+    transition: color 0.2s var(--bezier-transition), background-color 0.2s var(--bezier-transition);
+    text-decoration: none;
+}
+
+.caixa-autoria:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.caixa-autoria i {
+    font-size: 1.5rem;
+}
+
+.caixa-autoria p {
+    font-family: 'Big Shoulders Display', cursive;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
